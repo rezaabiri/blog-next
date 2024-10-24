@@ -1,16 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-    // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
+    images: {
+        domains: ['cdn.dummyjson.com'], // هاست‌های مجاز برای بارگذاری تصاویر
+    },
     trailingSlash: true,
-
-    // Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-    // skipTrailingSlashRedirect: true,
-
-    // Optional: Change the output directory `out` -> `dist`
-     distDir: 'build',
+    distDir: 'build',
     generateBuildId: async () => {
-        // This could be anything, using the latest git hash
         return "develop"
     },
 };
