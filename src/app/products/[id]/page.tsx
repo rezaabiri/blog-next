@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Image from "next/image";
 import MainHeader from "@/app/components/MainHeader";
+import Radio from "@/app/products/components/Radio";
+import React from "react";
 
 interface IProducts {
     products: IProduct[];
@@ -50,8 +52,10 @@ interface Dimensions {
     height: number;
     depth: number;
 }
+const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
+
 async function getProduct(id: string) {
-    const res = await fetch(`https://dummyjson.com/products/${id}`, {
+    const res = await fetch(`https://offerja.ir/shop_api/product.php/${id}`, {
         next: { revalidate: 60 },
     });
 
@@ -63,7 +67,7 @@ async function getProduct(id: string) {
     return res.json();
 }
 export async function generateStaticParams() {
-    const res = await fetch('https://dummyjson.com/products/');
+    const res = await fetch('https://offerja.ir/shop_api/main.json');
 
     const products: IProducts = await res.json();
 
@@ -78,11 +82,11 @@ const ProductDetail = async ({ params }: { params: { id: string } }) => {
     return (
         <div className={'w-full flex flex-col items-center justify-center'}>
             <MainHeader/>
-            <div className={'w-full flex flex-row mt-8'}>
-                <Image src={product.images[0]} alt={'product'} width={400} height={400}/>
-                <div className={'flex flex-col mt-5'}>
+            <div className={'flex flex-row w-full mt-12 justify-between'}>
+                <Image src={product.images[0]} alt={'product'} className={'bg-gray-100 rounded-lg'} width={400} height={400}/>
+                <div className={'flex flex-col ml-24 w-[60%]'}>
                     <label className={'text-black text-3xl font-semibold'}>{product.title}</label>
-                    <div className={'flex flex-row items-center'}>
+                    <div className={'flex flex-row items-center mt-4'}>
                         <div className={'flex flex-row rounded-md bg-orange-500 py-0.5 items-center'}>
                             <Star/>
                             <label className={'text-white text-sm px-2'}>4.6</label>
@@ -90,8 +94,13 @@ const ProductDetail = async ({ params }: { params: { id: string } }) => {
                         <label className={'text-sm text-gray-400 ml-4'}>{product.category}</label>
                         <label className={'text-sm text-gray-400'}>{product.tags.toString()}</label>
                     </div>
-                    <desc className={'text-sm text-gray-400 mt-3 w-1/2'}>{product.description}</desc>
+                    <desc className={'text-sm text-gray-400 mt-4 w-1/2 leading-6'}>{product.description}</desc>
+                    <hr className={'border border-1 border-gray-100 mt-4'}/>
+                    <label className={'mt-4 text-gray-400'}>Stock : {product.stock}</label>
+                    <div className={'mt-4 flex flex-col'}>
+                        <Radio colors={colors} price={String(product.price)}/>
 
+                    </div>
                 </div>
             </div>
         </div>
