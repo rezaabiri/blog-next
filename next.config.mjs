@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['cdn.dummyjson.com'],
-        remotePatterns: [
+        domains: ['offerja.ir'],
+        /*remotePatterns: [
             {
                 protocol: "https",
-                hostname: "cdn.dummyjson.com",
+                hostname: "offerja.ir",
                 port: "",
-                pathname: "/products/images/**",
+                pathname: "/products/images/!**",
             },
-        ],
+        ],*/
     },
 };
 

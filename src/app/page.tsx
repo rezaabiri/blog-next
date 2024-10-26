@@ -64,13 +64,13 @@ interface ICategories {
     url: string;
 }
 async function Page() {
-  const res = await fetch('https://dummyjson.com/products?limit=8', {
+  const res = await fetch('https://offerja.ir/shop_api/main.json', {
     next: { revalidate: 60 },
   });
   return res.json();
 }
 async function Categories() {
-  const res = await fetch('https://dummyjson.com/products/categories?limit=5', {
+  const res = await fetch('https://offerja.ir/shop_api/category.json', {
     next: { revalidate: 60 },
   });
   return res.json();

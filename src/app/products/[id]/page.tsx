@@ -51,7 +51,7 @@ interface Dimensions {
     depth: number;
 }
 async function getProduct(id: string) {
-    const res = await fetch(`https://dummyjson.com/products/${id}`, {
+    const res = await fetch(`https://offerja.ir/shop_api/product.php/${id}`, {
         next: { revalidate: 60 },
     });
 
@@ -63,7 +63,7 @@ async function getProduct(id: string) {
     return res.json();
 }
 export async function generateStaticParams() {
-    const res = await fetch('https://dummyjson.com/products/');
+    const res = await fetch('https://offerja.ir/shop_api/main.json');
 
     const products: IProducts = await res.json();
 
