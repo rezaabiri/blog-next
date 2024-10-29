@@ -8,6 +8,8 @@ import Banner from "@/app/components/Banner";
 
 
 import Category from "@/app/components/Category";
+import SwiperCardMarquee from "@/app/components/SwiperCardMarquee";
+import SwiperCardSlider from "@/app/components/SwiperCardSlider";
 
 interface IProducts {
     products: Product[];
@@ -82,7 +84,7 @@ const Posts = async () => {
 
   return (
       <div>
-        <MainHeader />
+          <MainHeader/>
           <SliderCard
               title={products.products[0].title}
               headLine={products.products[0].title}
@@ -94,7 +96,8 @@ const Posts = async () => {
           <Services/>
           <div className={'flex flex-col w-full text-center mt-20'}>
               <h2 className={'font-extrabold text-xl'}>Best Seller Products</h2>
-              <label className={'text-md text-gray-400'}>Check our best seller products on Elma website right now</label>
+              <label className={'text-md text-gray-400'}>Check our best seller products on Elma website right
+                  now</label>
 
           </div>
           <div className={'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 place-items-center my-4 mx-8'}>
@@ -118,8 +121,15 @@ const Posts = async () => {
               discountPercentage={String(products.products[1].discountPercentage)}
               image={products.products[1].thumbnail}
           />
+          <br/>
+          <br/>
+          <br/>
+          <SwiperCardMarquee reverse={false} imagesList={products.products[6].images}/>
+          <br/>
+          <br/>
           <Category categories={categories}/>
           <br/>
+          <SwiperCardSlider reverse={false} imageList={products.products[6].images}/>
           <br/>
       </div>
   );

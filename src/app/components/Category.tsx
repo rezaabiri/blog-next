@@ -37,7 +37,7 @@ const iconsJson = [
     },
 ]
 const Category = (props: ICategoryProps) => (
-    <div className={'flex flex-col mx-28 my-12'}>
+    <div className={'flex flex-col mx-28 my-6'}>
         <div className={'flex flex-row justify-between'}>
             <label className={'text-2xl font-extrabold text-black'}>Category</label>
             <button className={'rounded-sm px-6 py-1.5 border border-1 border-[#43467F] text-sm text-[#43467F]'}>
