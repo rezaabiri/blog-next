@@ -1,33 +1,14 @@
 'use client'
 import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
-import {Navigation, Pagination, Scrollbar} from "swiper/modules";
+import {Navigation, Pagination} from "swiper/modules";
 import Image from "next/image";
 
-const arr:string[] = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-    '5',
-]
 interface ISwiper{
     reverse: boolean,
     imageList: string[]
@@ -67,6 +48,7 @@ const SwiperCardSlider = (props: ISwiper) => (
 
 );
 
+/*
 const SlideBox = (props: {id: number}) => {
     if(props.id === 0) {
         return (
@@ -89,4 +71,5 @@ const SlideBox = (props: {id: number}) => {
         </div>
     )
 }
+*/
 export default SwiperCardSlider;

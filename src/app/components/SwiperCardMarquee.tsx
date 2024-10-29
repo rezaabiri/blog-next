@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import {Autoplay} from "swiper/modules";
@@ -34,7 +33,6 @@ const SwiperCardMarquee = (props: ISwiper) => (
                     <SwiperSlide
                         key={index}
                     >
-                        {/*<SlideBox id={index}/>*/}
                         <Image
                             className={'rounded-lg bg-gray-300 p-2'}
                             src={props.imagesList[index]}
@@ -46,15 +44,6 @@ const SwiperCardMarquee = (props: ISwiper) => (
 
         </Swiper>
         <div className={'z-20 absolute top-0 left-0 right-0 bottom-0 linear-gradient'}></div>
-
-    </div>
-
-
-);
-
-const SlideBox = (props: { id: number }) => (
-    <div className={'flex flex-col items-center justify-center w-auto h-12 rounded-lg bg-gray-300'}>
-        <h1>Hello swiper id : {props.id}</h1>
     </div>
 );
 export default SwiperCardMarquee;
