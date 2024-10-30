@@ -34,7 +34,7 @@ const Radio = ({ colors, price }: IRadioProps) => {
     return (
         <div className={'flex flex-col'}>
             <h3 className="mb-3 text-lg font-medium text-gray-900 dark:text-white">Choose Color</h3>
-            <ul className="grid md:grid-cols-12 w-auto">
+            <ul className="grid grid-cols-12 gap-16 lg:gap-0 w-auto">
                 {
                     colors.map((color, index) => (
                         <li key={index}>
@@ -60,27 +60,21 @@ const Radio = ({ colors, price }: IRadioProps) => {
                     ))
                 }
             </ul>
-            <div className={'flex flex-row items-center justify-between mt-6'}>
-                <label className={'mr-5 text-2xl font-semibold'}>
+            <div className={'flex pb-4 lg:pb-0 flex-col lg:flex-row lg:items-center justify-between mt-6'}>
+                <label className={'mr-5 pb-4 lg:pb-0 text-2xl font-semibold'}>
                     {`$ ${priceColor}`}
                 </label>
                 <div className={'flex flex-row'}>
                     <button
-                        className={'rounded-lg mr-5 w-48 px-6 py-3 border border-1 border-[#43467F] text-sm text-[#43467F]'}>Buy
+                        className={'rounded-lg mr-5 w-48 lg:px-6 py-3 border border-1 border-[#43467F] text-sm text-[#43467F]'}>Buy
                         Now
                     </button>
-
-                    <button className={'rounded-lg w-48 px-6 py-3 bg-[#43467F] text-sm text-white'}>Add
+                    <button className={'rounded-lg w-48 lg:px-6 py-3 bg-[#43467F] text-sm text-white'}>Add
                         to
                         cart
                     </button>
-
-
                 </div>
-
-
             </div>
-
         </div>
     );
 };

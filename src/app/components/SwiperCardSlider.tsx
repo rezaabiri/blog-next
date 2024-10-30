@@ -8,11 +8,25 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import {Navigation, Pagination} from "swiper/modules";
 import Image from "next/image";
+import {SwiperOptions} from "swiper/types";
 
 interface ISwiper{
     reverse: boolean,
     imageList: string[]
 }
+
+const swiperMobile: SwiperOptions = {
+    slidesPerView: 2,
+    spaceBetween: 6
+};
+const swiperTablet: SwiperOptions = {
+    slidesPerView: 4,
+    spaceBetween: 8
+};
+const swiperDesktop: SwiperOptions = {
+    slidesPerView: 6,
+    spaceBetween: 10
+};
 const SwiperCardSlider = (props: ISwiper) => (
     <div style={{direction: 'rtl'}} className={'mx-8 lg:mx-28'}>
         <Swiper
@@ -25,18 +39,9 @@ const SwiperCardSlider = (props: ISwiper) => (
             modules={[Navigation, Pagination]}
             pagination={{ clickable: true}}
             breakpoints={{
-                412: {
-                    slidesPerView: 2,
-                    spaceBetween: 7
-                },
-                740: {
-                    slidesPerView: 4,
-                    spaceBetween: 12
-                },
-                1024: {
-                    slidesPerView: 6,
-                    spaceBetween: 16
-                }
+                412: swiperMobile,
+                740: swiperTablet,
+                1024: swiperDesktop
             }}
             style={{ width: "100%", justifyContent: "space-between"}}
         >

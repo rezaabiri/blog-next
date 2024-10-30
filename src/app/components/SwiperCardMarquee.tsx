@@ -5,11 +5,24 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import {Autoplay} from "swiper/modules";
 import Image from "next/image";
+import {SwiperOptions} from "swiper/types";
 
 interface ISwiper{
     reverse: boolean,
     imagesList: string[]
 }
+const swiperMobile: SwiperOptions = {
+    slidesPerView: 4,
+    spaceBetween: 10
+};
+const swiperTablet: SwiperOptions = {
+    slidesPerView: 4,
+    spaceBetween: 10
+};
+const swiperDesktop: SwiperOptions = {
+    slidesPerView: 4,
+    spaceBetween: 10
+};
 const SwiperCardMarquee = (props: ISwiper) => (
     <div className={'relative'}>
 
@@ -19,18 +32,9 @@ const SwiperCardMarquee = (props: ISwiper) => (
             spaceBetween={20}
             loop={true}
             breakpoints={{
-                412: {
-                    slidesPerView: 4,
-                    spaceBetween: 10
-                },
-                740: {
-                    slidesPerView: 7,
-                    spaceBetween: 15
-                },
-                1024: {
-                    slidesPerView: 10,
-                    spaceBetween: 20
-                }
+                412: swiperMobile,
+                740: swiperTablet,
+                1024: swiperDesktop
             }}
             autoplay={{
                 delay: 0,

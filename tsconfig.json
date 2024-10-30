@@ -24,7 +24,8 @@
     "paths": {
       "@/*": [
         "./src/*"
-      ]
+      ],
+
     },
     "target": "ES2017"
   },
@@ -35,6 +36,9 @@
     ".next/types/**/*.ts",
     "build/types/**/*.ts",
     "src/app/components/SwiperCardMarquee.tsx"
+  ],
+  "filesGlob": [
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules"

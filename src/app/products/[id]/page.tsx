@@ -80,9 +80,9 @@ const ProductDetail = async (props: { params: Promise<{ id: string }> }) => {
     return (
         <div className={'w-full flex flex-col items-center justify-center'}>
             <MainHeader/>
-            <div className={'flex flex-row w-full mt-12 justify-between'}>
+            <div className={'flex flex-col lg:flex-row w-full mt-12 justify-between'}>
                 <Image src={product.images[0]} alt={'product'} className={'bg-gray-100 rounded-lg'} width={400} height={400}/>
-                <div className={'flex flex-col ml-24 w-[60%]'}>
+                <div className={'flex flex-col px-6 lg:ml-24 w-full lg:w-[60%]'}>
                     <label className={'text-black text-3xl font-semibold'}>{product.title}</label>
                     <div className={'flex flex-row items-center mt-4'}>
                         <div className={'flex flex-row rounded-md bg-orange-500 py-0.5 items-center'}>
@@ -92,7 +92,7 @@ const ProductDetail = async (props: { params: Promise<{ id: string }> }) => {
                         <label className={'text-sm text-gray-400 ml-4'}>{product.category}</label>
                         <label className={'text-sm text-gray-400'}>{product.tags.toString()}</label>
                     </div>
-                    <p className={'text-sm text-gray-400 mt-4 w-1/2 leading-6'}>{product.description}</p>
+                    <p className={'text-sm text-gray-400 mt-4 lg:w-1/2 leading-6'}>{product.description}</p>
                     <hr className={'border border-1 border-gray-100 mt-4'}/>
                     <label className={'mt-4 text-gray-400'}>Stock : {product.stock}</label>
                     <div className={'mt-4 flex flex-col'}>
