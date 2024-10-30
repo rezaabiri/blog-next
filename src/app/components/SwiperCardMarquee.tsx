@@ -13,14 +13,14 @@ interface ISwiper{
 }
 const swiperMobile: SwiperOptions = {
     slidesPerView: 4,
-    spaceBetween: 10
+    spaceBetween: 6
 };
 const swiperTablet: SwiperOptions = {
-    slidesPerView: 4,
-    spaceBetween: 10
+    slidesPerView: 6,
+    spaceBetween: 8
 };
 const swiperDesktop: SwiperOptions = {
-    slidesPerView: 4,
+    slidesPerView: 8,
     spaceBetween: 10
 };
 const SwiperCardMarquee = (props: ISwiper) => (
@@ -28,11 +28,9 @@ const SwiperCardMarquee = (props: ISwiper) => (
 
         <Swiper
             className={'swiper-marquee'}
-            slidesPerView={10}
-            spaceBetween={20}
             loop={true}
             breakpoints={{
-                412: swiperMobile,
+                300: swiperMobile,
                 740: swiperTablet,
                 1024: swiperDesktop
             }}

@@ -17,21 +17,19 @@ interface ISwiper{
 
 const swiperMobile: SwiperOptions = {
     slidesPerView: 2,
-    spaceBetween: 6
+    spaceBetween: 8
 };
 const swiperTablet: SwiperOptions = {
     slidesPerView: 4,
-    spaceBetween: 8
+    spaceBetween: 10
 };
 const swiperDesktop: SwiperOptions = {
     slidesPerView: 6,
-    spaceBetween: 10
+    spaceBetween: 12
 };
 const SwiperCardSlider = (props: ISwiper) => (
     <div style={{direction: 'rtl'}} className={'mx-8 lg:mx-28'}>
         <Swiper
-            slidesPerView={6}
-            spaceBetween={25}
             loop={false}
             /*scrollbar={{
                 hide: true
@@ -39,7 +37,7 @@ const SwiperCardSlider = (props: ISwiper) => (
             modules={[Navigation, Pagination]}
             pagination={{ clickable: true}}
             breakpoints={{
-                412: swiperMobile,
+                300: swiperMobile,
                 740: swiperTablet,
                 1024: swiperDesktop
             }}
