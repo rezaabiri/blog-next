@@ -58,12 +58,9 @@ async function getProduct(id: string) {
     const res = await fetch(`https://offerja.ir/shop_api/product.php/${id}`, {
         next: { revalidate: 60 },
     });
-
     if (!res.ok) {
         notFound();
     }
-
-
     return res.json();
 }
 export async function generateStaticParams() {
@@ -76,7 +73,8 @@ export async function generateStaticParams() {
     }));
 }
 
-const ProductDetail = async ({ params }: { params: { id: string } }) => {
+const ProductDetail = async (props: { params: Promise<{ id: string }> }) => {
+    const params = await props.params;
     const product: IProduct = await getProduct(params.id);
 
     return (
@@ -94,7 +92,7 @@ const ProductDetail = async ({ params }: { params: { id: string } }) => {
                         <label className={'text-sm text-gray-400 ml-4'}>{product.category}</label>
                         <label className={'text-sm text-gray-400'}>{product.tags.toString()}</label>
                     </div>
-                    <desc className={'text-sm text-gray-400 mt-4 w-1/2 leading-6'}>{product.description}</desc>
+                    <p className={'text-sm text-gray-400 mt-4 w-1/2 leading-6'}>{product.description}</p>
                     <hr className={'border border-1 border-gray-100 mt-4'}/>
                     <label className={'mt-4 text-gray-400'}>Stock : {product.stock}</label>
                     <div className={'mt-4 flex flex-col'}>

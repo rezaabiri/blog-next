@@ -16,11 +16,11 @@ interface IIcon {
 }
 const MainHeader = () => (
     <header className={'w-full pt-7 pb-4 px-5'}>
-        <div className={'flex flex-row justify-between items-center'}>
+        <div className={'flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between items-center'}>
             <HeaderItem icon={logo as string} title={'Elma'}/>
-            <div className={'flex flex-row bg-gray-100 rounded-md w-1/2 justify-between items-center'}>
+            <div className={'flex flex-row bg-gray-100 rounded-md w-full lg:w-1/2 justify-between items-center'}>
                 <input
-                    className={'bg-gray-100 w-[30%] p-2 border-none text-gray-900 text-sm rounded-lg focus:border-none block outline-none placeholder:text-gray-400'}
+                    className={'bg-gray-100 w-[50%] lg:w-[30%] p-2 border-none text-gray-900 text-sm rounded-lg focus:border-none block outline-none placeholder:text-gray-400'}
                     placeholder={'Search anything'}/>
                 <div className={'flex flex-row items-center'}>
                     <label className={'text-sm text-gray-400 mr-3'}>All Categories</label>

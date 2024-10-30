@@ -11,7 +11,7 @@ interface IProductCartItem {
 }
 
 const ProductCart = (props: IProductCartItem) => (
-    <div className={'flex flex-col rounded-lg mb-12 h-[280px] w-48 p-2'}>
+    <div className={'flex flex-col items-center justify-center rounded-lg mb-12 h-[280px] w-[80%] lg:w-48 lg:p-2'}>
         <Image style={{width: '170px', height: '170px'}}
             src={props.image as string}
             alt={'image product'}

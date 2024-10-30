@@ -10,8 +10,8 @@ interface ISlideProduct {
     image: string
 }
 const SliderCard = (props: ISlideProduct) => (
-    <div className={'flex flex-row justify-between items-center bg-[#F9FAFB]'}>
-        <div className={'flex flex-col mx-28'}>
+    <div className={'flex flex-col gap-4 lg:flex-row justify-between items-center bg-[#F9FAFB]'}>
+        <div className={'flex flex-col p-6 lg:mx-28'}>
             <label className={'text-sm text-[#47C1BF] mb-3'}>{props.title}</label>
             <h1 className={'font-extrabold text-3xl mb-3'}>{props.headLine}</h1>
             <desc className={'text-sm text-gray-400 leading-6'}>{props.description}</desc>
@@ -21,7 +21,7 @@ const SliderCard = (props: ISlideProduct) => (
             </div>
         </div>
 
-        <Image src={props.image as string} alt={'product image'} width={500} height={300}/>
+        <Image className={'size-96 mb-8 lg:mb-0'} src={props.image as string} alt={'product image'} width={500} height={300}/>
     </div>
 );
 

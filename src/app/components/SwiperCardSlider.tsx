@@ -14,7 +14,7 @@ interface ISwiper{
     imageList: string[]
 }
 const SwiperCardSlider = (props: ISwiper) => (
-    <div style={{direction: 'rtl'}} className={'mx-28'}>
+    <div style={{direction: 'rtl'}} className={'mx-8 lg:mx-28'}>
         <Swiper
             slidesPerView={6}
             spaceBetween={25}
@@ -24,6 +24,20 @@ const SwiperCardSlider = (props: ISwiper) => (
             }}*/
             modules={[Navigation, Pagination]}
             pagination={{ clickable: true}}
+            breakpoints={{
+                412: {
+                    slidesPerView: 2,
+                    spaceBetween: 7
+                },
+                740: {
+                    slidesPerView: 4,
+                    spaceBetween: 12
+                },
+                1024: {
+                    slidesPerView: 6,
+                    spaceBetween: 16
+                }
+            }}
             style={{ width: "100%", justifyContent: "space-between"}}
         >
             {props.imageList?.map((steward, index) => {
@@ -34,7 +48,8 @@ const SwiperCardSlider = (props: ISwiper) => (
                     >
                         {/*<SlideBox id={index}/>*/}
                         <Image
-                            className={'rounded-lg bg-gray-300 p-3'}
+                            key={index}
+                            className={'rounded-lg bg-gray-300 p-1 lg:p-3'}
                             src={props.imageList[index]}
                             alt={'image'} width={200} height={60}
                         />

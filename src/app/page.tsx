@@ -65,22 +65,22 @@ interface ICategories {
     name: string;
     url: string;
 }
-async function Page() {
-  const res = await fetch('https://offerja.ir/shop_api/main.json', {
-    next: { revalidate: 60 },
-  });
-  return res.json();
+async function fetchProducts(): Promise<IProducts> {
+    const res = await fetch('https://offerja.ir/shop_api/main.json', {
+        next: { revalidate: 60 },
+    });
+    return res.json();
 }
-async function Categories() {
-  const res = await fetch('https://offerja.ir/shop_api/category.json', {
-    next: { revalidate: 60 },
-  });
-  return res.json();
+async function fetchCategories(): Promise<ICategories[]> {
+    const res = await fetch('https://offerja.ir/shop_api/category.json', {
+        next: { revalidate: 60 },
+    });
+    return res.json();
 }
 
 const Posts = async () => {
-    const products: IProducts = await Page();
-    const categories: ICategories[] = await Categories();
+    const products = await fetchProducts();
+    const categories = await fetchCategories();
 
   return (
       <div>
@@ -100,9 +100,11 @@ const Posts = async () => {
                   now</label>
 
           </div>
-          <div className={'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 place-items-center my-4 mx-8'}>
+          <div className={'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 place-items-center my-4 lg:mx-8'}>
               {products.products.map((product) => (
-                  <Link key={product.id} href={`/products/${product.id}`}>
+                  <Link
+                      className={'flex flex-col justify-center items-center'}
+                      key={product.id} href={`/products/${product.id}`}>
                       <ProductCart
                           image={product.images[0] as string}
                           brand={product.brand}

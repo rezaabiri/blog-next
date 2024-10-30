@@ -18,6 +18,20 @@ const SwiperCardMarquee = (props: ISwiper) => (
             slidesPerView={10}
             spaceBetween={20}
             loop={true}
+            breakpoints={{
+                412: {
+                    slidesPerView: 4,
+                    spaceBetween: 10
+                },
+                740: {
+                    slidesPerView: 7,
+                    spaceBetween: 15
+                },
+                1024: {
+                    slidesPerView: 10,
+                    spaceBetween: 20
+                }
+            }}
             autoplay={{
                 delay: 0,
                 disableOnInteraction: false,
@@ -34,7 +48,8 @@ const SwiperCardMarquee = (props: ISwiper) => (
                         key={index}
                     >
                         <Image
-                            className={'rounded-lg bg-gray-300 p-2'}
+                            key={index}
+                            className={'rounded-lg bg-gray-300 p-1 lg:p-2'}
                             src={props.imagesList[index]}
                             alt={'image'} width={100} height={60}
                         />

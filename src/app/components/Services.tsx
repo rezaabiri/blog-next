@@ -11,7 +11,7 @@ interface IItemService {
     subTitle: string
 }
 const Services = () => (
-    <div className={'flex flex-row justify-between mx-28 my-8'}>
+    <div className={'grid grid-cols-2 mx-8 gap-4 lg:flex lg:flex-row justify-between lg:mx-28 my-8'}>
         <ItemService icon={car as string} title={'Free Shopping'} subTitle={'Free delivery for all orders'}/>
         <ItemService icon={money as string} title={'Money Guarantee'} subTitle={'30 days money back'}/>
         <ItemService icon={headphone as string} title={'24/7 Support'} subTitle={'Friendly 24/7 support'}/>
@@ -21,8 +21,8 @@ const Services = () => (
 
 
 const ItemService = (props: IItemService) => (
-    <div className={'flex flex-row gap-3 justify-between'}>
-        <Image src={props.icon} alt={'icons service'} width={24} height={24}/>
+    <div className={'flex flex-row justify-center items-center lg:gap-3 lg:justify-between'}>
+        <Image className={'mr-3 lg:m-0'} src={props.icon} alt={'icons service'} width={24} height={24}/>
         <div className={'flex flex-col'}>
             <label className={'text-sm font-medium'}>{props.title}</label>
             <label className={'text-xs text-gray-400'}>{props.subTitle}</label>
