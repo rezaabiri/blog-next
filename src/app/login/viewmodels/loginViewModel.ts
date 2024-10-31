@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { login } from '../services/authService';
-import { IAuthModel } from '../models/AuthModel';
+import { login } from '../services/loginService';
+import { ILoginModel } from '../models/loginModel';
 import {AxiosError} from "axios";
 
 const useAuthViewModel = () => {
-    const [authData, setAuthData] = useState<IAuthModel | null>(null);
+    const [authData, setAuthData] = useState<ILoginModel | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -12,8 +12,7 @@ const useAuthViewModel = () => {
         setLoading(true);
         setError(null);
         try {
-            const data = await login(phoneNumber);
-            console.log(data)
+            const data:ILoginModel = await login(phoneNumber);
             setAuthData(data);
         } catch (err: unknown) {
             if (err instanceof AxiosError) {

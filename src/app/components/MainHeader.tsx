@@ -1,4 +1,3 @@
-import React from 'react';
 import cart from '../../../assets/icons/cart_fill.svg';
 import user from '../../../assets/icons/user_fill.svg';
 import logo from '../../../assets/icons/logo.svg';
@@ -15,32 +14,35 @@ interface IHeaderItem {
 interface IIcon {
     icon: string
 }
-const MainHeader = () => (
-    <header className={'w-full pt-7 pb-4 px-5'}>
-        <div className={'flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between items-center'}>
-            <HeaderItem icon={logo as string} title={'Elma'}/>
-            <Link href={'login'}>Login</Link>
-            <div className={'flex flex-row bg-gray-100 rounded-md w-full lg:w-1/2 justify-between items-center'}>
-                <input
-                    className={'bg-gray-100 w-[50%] lg:w-[30%] p-2 border-none text-gray-900 text-sm rounded-lg focus:border-none block outline-none placeholder:text-gray-400'}
-                    placeholder={'Search anything'}/>
-                <div className={'flex flex-row items-center'}>
-                    <label className={'text-sm text-gray-400 mr-3'}>All Categories</label>
-                    <div className={'rounded-md bg-black p-2'}>
-                        <Image src={search as string} alt={'search'}/>
+const MainHeader = () => {
+    return (
+        <header className={'w-full pt-7 pb-4 px-5'}>
+            <div className={'flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between items-center'}>
+                <HeaderItem icon={logo as string} title={'Elma'}/>
+                <Link href={'login'}>Login</Link>
+                <Link href={'notifications'}>Notifications</Link>
+                <div className={'flex flex-row bg-gray-100 rounded-md w-full lg:w-1/2 justify-between items-center'}>
+                    <input
+                        className={'bg-gray-100 w-[50%] lg:w-[30%] p-2 border-none text-gray-900 text-sm rounded-lg focus:border-none block outline-none placeholder:text-gray-400'}
+                        placeholder={'Search anything'}/>
+                    <div className={'flex flex-row items-center'}>
+                        <label className={'text-sm text-gray-400 mr-3'}>All Categories</label>
+                        <div className={'rounded-md bg-black p-2'}>
+                            <Image src={search as string} alt={'search'}/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={'flex flex-row'}>
-                <CircleItem icon={cart as string}/>
-                <CircleItem icon={fav as string}/>
-                <CircleItem icon={user as string}/>
+                <div className={'flex flex-row'}>
+                    <CircleItem icon={cart as string}/>
+                    <CircleItem icon={fav as string}/>
+                    <CircleItem icon={user as string}/>
 
+                </div>
             </div>
-        </div>
 
-    </header>
-);
+        </header>
+    )
+}
 
 const HeaderItem = (itemHeader: IHeaderItem) => (
     <div className={'flex flex-row justify-center items-center cursor-pointer'}>

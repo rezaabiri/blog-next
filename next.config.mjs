@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['offerja.ir'],
+        domains: ['offerja.ir', 'cdn.dummyjson.com', 'images.unsplash.com', 'www.melipayamak.com'],
         /*remotePatterns: [
             {
                 protocol: "https",

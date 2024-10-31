@@ -1,7 +1,7 @@
 // localStorageManager.ts
 
 const localStorageManager = {
-    setItem(key: string, value: any) {
+    setItem(key: string, value: string) {
         localStorage.setItem(key, JSON.stringify(value));
     },
     getItem<T>(key: string): T | null {

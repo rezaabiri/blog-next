@@ -6,6 +6,14 @@
 * {
   font-family: IRANSans, sans-serif;
 }
+
+.rtl {
+  direction: rtl;
+}
+.ltr {
+  direction: ltr;
+}
+
 .swiper-marquee{
   --swiper-wrapper-transition-timing-function: linear !important;
 }

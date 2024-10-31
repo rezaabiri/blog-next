@@ -1,6 +1,9 @@
 import type {Metadata} from "next";
 import "./globals.css";
 import {StoreProvider} from "@/store/StoreProvider";
+import {Slide, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -16,6 +19,24 @@ export default function RootLayout({
         <StoreProvider>
             <html lang="en">
             <body>
+            <ToastContainer
+                position={"bottom-center"}
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={true}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={true}
+                closeButton={false}
+                theme={"colored"}
+                transition={Slide}
+                className={'font-extrabold p-5 h-32'}
+                toastClassName={'m-8'}
+                toastStyle={{borderRadius: '8px'}}
+            />
+
             {children}
             </body>
             </html>

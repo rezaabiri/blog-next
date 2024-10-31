@@ -16,7 +16,7 @@ export const counterSlice = createSlice({
     reducers: {
         increment: (state) => {
             state.value += 1
-            localStorageManager.setItem('counter', state.value += 1)
+            localStorageManager.setItem('counter', String(state.value +=1))
         },
         decrement: (state) => {
             state.value -= 1
