@@ -11,8 +11,9 @@ const Page = () => {
     const isMobile = useIsMobile();
     const router = useRouter();
     useEffect(() => {
-        const isLoggedIn = localStorage.getItem('loggedIn');
-        if(isLoggedIn === 'false'){
+        const isLoggedIn = localStorage.getItem('loggedIn') ?? '';
+        console.log(isLoggedIn)
+        if(isLoggedIn === 'false' || isLoggedIn === ''){
             router.push('login')
         }
     }, [router])
