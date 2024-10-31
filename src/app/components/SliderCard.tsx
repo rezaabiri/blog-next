@@ -14,7 +14,7 @@ const SliderCard = (props: ISlideProduct) => (
         <div className={'flex flex-col p-6 lg:mx-28'}>
             <label className={'text-sm text-[#47C1BF] mb-3'}>{props.title}</label>
             <h1 className={'font-extrabold text-3xl mb-3'}>{props.headLine}</h1>
-            <desc className={'text-sm text-gray-400 leading-6'}>{props.description}</desc>
+            <p className={'text-sm text-gray-400 leading-6'}>{props.description}</p>
             <div className={'flex flex-row mt-4 gap-4'}>
                 <button className={'rounded-sm px-6 py-1.5 bg-[#43467F] text-sm text-white'}>Buy Now</button>
                 <button className={'rounded-sm px-6 py-1.5 border border-1 border-[#43467F] text-sm text-[#43467F]'}>Learn More</button>

@@ -5,6 +5,7 @@ import logo from '../../../assets/icons/logo.svg';
 import fav from '../../../assets/icons/fav_fill.svg';
 import search from '../../../assets/icons/search.svg';
 import Image from "next/image";
+import Link from "next/link";
 
 interface IHeaderItem {
     icon: string
@@ -18,6 +19,7 @@ const MainHeader = () => (
     <header className={'w-full pt-7 pb-4 px-5'}>
         <div className={'flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between items-center'}>
             <HeaderItem icon={logo as string} title={'Elma'}/>
+            <Link href={'login'}>Login</Link>
             <div className={'flex flex-row bg-gray-100 rounded-md w-full lg:w-1/2 justify-between items-center'}>
                 <input
                     className={'bg-gray-100 w-[50%] lg:w-[30%] p-2 border-none text-gray-900 text-sm rounded-lg focus:border-none block outline-none placeholder:text-gray-400'}

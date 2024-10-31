@@ -10,6 +10,7 @@ import Banner from "@/app/components/Banner";
 import Category from "@/app/components/Category";
 import SwiperCardMarquee from "@/app/components/SwiperCardMarquee";
 import SwiperCardSlider from "@/app/components/SwiperCardSlider";
+import {Counter} from "@/app/components/Counter";
 
 interface IProducts {
     products: Product[];
@@ -133,6 +134,7 @@ const Posts = async () => {
           <br/>
           <SwiperCardSlider reverse={false} imageList={products.products[6].images}/>
           <br/>
+          <Counter/>
       </div>
   );
 };
