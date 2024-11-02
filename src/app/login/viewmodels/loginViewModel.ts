@@ -14,7 +14,7 @@ const useAuthViewModel = () => {
             const data:ILoginModel = await login(phoneNumber);
             setAuthData(data);
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (err: string) {
+        } catch (err: unknown) {
             setLoading(false);
             setError('err')
         }
