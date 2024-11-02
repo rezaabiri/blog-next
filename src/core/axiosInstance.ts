@@ -2,6 +2,7 @@ import axios, {AxiosResponse} from "axios";
 import {clearTokens, getAccessToken, getRefreshToken, setTokens} from "@/core/sessionManager";
 import {toast} from "react-toastify";
 import {IVerifyModel} from "@/app/verify/models/verifyModel";
+import {generateToken} from "@/core/tokenService";
 
 const axiosInstance = axios.create({
     baseURL: 'https://saalonia.ir/api/'
@@ -9,7 +10,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     (config) => {
-        const accessToken = getAccessToken()
+        const accessToken = getAccessToken() ?? generateToken("api/" + config.url);
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
         }
@@ -18,6 +19,11 @@ axiosInstance.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
+const config: { headers: { Authorization: string } } = {
+    headers: {
+        Authorization: `Bearer ${generateToken('api/refreshToken')}`
+    }
+}
 axiosInstance.interceptors.response.use(
     (response) => response,
     async (error) => {
@@ -27,9 +33,13 @@ axiosInstance.interceptors.response.use(
             const refreshToken = getRefreshToken();
             if (refreshToken) {
                 try {
-                    const { data }: AxiosResponse<IVerifyModel> = await axios.post('https://saalonia.ir/api/refreshToken', { refreshToken });
+                    const { data }: AxiosResponse<IVerifyModel> = await axios.post(
+                        'https://saalonia.ir/api/refreshToken',
+                        { refreshToken },
+                        config
+                        );
                     setTokens(data.result.access_token, data.result.refresh_token);
-                    originalRequest.headers.Authorization = `Bearer ${getAccessToken()}`;
+                    originalRequest.headers.Authorization = `Bearer ${getAccessToken() ?? generateToken("api/refreshToken")}`;
                     return axiosInstance(originalRequest);
                 } catch (refreshError) {
                     clearTokens();
@@ -51,7 +61,6 @@ axiosInstance.interceptors.response.use(
         } else {
             toast.error("خطایی رخ داده است. لطفاً دوباره تلاش کنید.");
         }
-
         return Promise.reject(error);
     }
 );

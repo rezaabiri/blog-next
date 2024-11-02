@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { login } from '../services/loginService';
 import { ILoginModel } from '../models/loginModel';
-import {AxiosError} from "axios";
 
 const useAuthViewModel = () => {
     const [authData, setAuthData] = useState<ILoginModel | null>(null);
@@ -14,14 +13,10 @@ const useAuthViewModel = () => {
         try {
             const data:ILoginModel = await login(phoneNumber);
             setAuthData(data);
-        } catch (err: unknown) {
-            if (err instanceof AxiosError) {
-                console.error('Axios error:', err.response?.data || err.message);
-            } else {
-                console.error('Unexpected error:', err);
-            }
-        } finally {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (err: string) {
             setLoading(false);
+            setError('err')
         }
     };
 
