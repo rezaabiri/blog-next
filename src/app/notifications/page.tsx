@@ -12,7 +12,6 @@ const Page = () => {
     const router = useRouter();
     useEffect(() => {
         const isLoggedIn = localStorage.getItem('loggedIn') ?? '';
-        console.log(isLoggedIn)
         if(isLoggedIn === 'false' || isLoggedIn === ''){
             router.push('login')
         }
