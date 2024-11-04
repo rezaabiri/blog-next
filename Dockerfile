@@ -6,9 +6,6 @@ ARG SECRET_KEY
 RUN mkdir -p /usr/src/app
 ENV PORT 3000
 
-# Pass SECRET_KEY from build arg to environment variable
-ENV SECRET_KEY=$SECRET_KEY
-
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app
@@ -20,6 +17,8 @@ COPY package-lock.json /usr/src/app
 RUN npm ci
 
 COPY . /usr/src/app
+
+RUN echo "The secret key is: $SECRET_KEY"
 
 RUN npm run build
 
