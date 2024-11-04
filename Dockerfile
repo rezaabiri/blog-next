@@ -1,7 +1,13 @@
 FROM node:alpine
 
+# Define build argument
+ARG SECRET_KEY
+
 RUN mkdir -p /usr/src/app
 ENV PORT 3000
+
+# Pass SECRET_KEY from build arg to environment variable
+ENV SECRET_KEY=$SECRET_KEY
 
 WORKDIR /usr/src/app
 
