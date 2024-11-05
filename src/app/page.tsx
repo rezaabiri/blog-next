@@ -67,21 +67,21 @@ interface ICategories {
     url: string;
 }
 async function fetchProducts(): Promise<IProducts> {
-    const res = await fetch('https://offerja.ir/shop_api/main.json', {
+    const res: Response = await fetch('https://offerja.ir/shop_api/main.json', {
         next: { revalidate: 60 },
     });
     return res.json();
 }
 async function fetchCategories(): Promise<ICategories[]> {
-    const res = await fetch('https://offerja.ir/shop_api/category.json', {
+    const res: Response = await fetch('https://offerja.ir/shop_api/category.json', {
         next: { revalidate: 60 },
     });
     return res.json();
 }
 
 const Posts = async () => {
-    const products = await fetchProducts();
-    const categories = await fetchCategories();
+    const products: IProducts = await fetchProducts();
+    const categories: ICategories[] = await fetchCategories();
 
   return (
       <div>

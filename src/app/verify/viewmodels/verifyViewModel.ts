@@ -12,7 +12,7 @@ const useVerifyViewModel = () => {
     const handleVerify = async (phoneNumber: string, code: string) => {
         setLoading(true);
         try {
-            const data = await verify(phoneNumber, code);
+            const data: IVerifyModel = await verify(phoneNumber, code);
             setTokens(data.result.access_token, data.result.refresh_token)
             setAuthData(data);
             router.push('/notifications')
